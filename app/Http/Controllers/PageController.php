@@ -9,7 +9,11 @@ class PageController extends Controller
 {
     public function home()
     {
-        $tasks = Task::query()->whereDate('task_date', Carbon::today())->orderBy('id')->get();
+        $tasks = Task::query()
+            ->where('is_archived', false)
+            ->whereDate('task_date', Carbon::today())
+            ->orderBy('id')
+            ->get();
 
         return view('home', compact('tasks'));
     }
