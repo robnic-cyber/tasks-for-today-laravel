@@ -14,12 +14,12 @@ class DatabaseSeeder extends Seeder
         $today = Carbon::today();
 
         foreach ([
-            ['title' => 'Review project requirements', 'status' => 'completed', 'task_date' => $today],
+            ['title' => 'Review project requirements', 'description' => 'Confirm the laboratory requirements and acceptance criteria.', 'status' => 'done', 'task_date' => $today],
             ['title' => 'Plan weekly priorities', 'status' => 'pending', 'task_date' => $today],
             ['title' => 'Update task documentation', 'status' => 'pending', 'task_date' => $today],
-            ['title' => 'Prepare database migration', 'status' => 'completed', 'task_date' => $today->copy()->subDay()],
+            ['title' => 'Prepare database migration', 'status' => 'done', 'task_date' => $today->copy()->subDay()],
             ['title' => 'Test Eloquent queries', 'status' => 'pending', 'task_date' => $today->copy()->subDay()],
-            ['title' => 'Refine Blade layout', 'status' => 'completed', 'task_date' => $today->copy()->subDays(2)],
+            ['title' => 'Refine Blade layout', 'status' => 'done', 'task_date' => $today->copy()->subDays(2)],
             ['title' => 'Write project README', 'status' => 'pending', 'task_date' => $today->copy()->subDays(2)],
             ['title' => 'Review final submission', 'status' => 'pending', 'task_date' => $today->copy()->addDay()],
         ] as $task) {
@@ -27,8 +27,8 @@ class DatabaseSeeder extends Seeder
         }
 
         User::query()->updateOrCreate(
-            ['username' => 'alex.student'],
-            ['full_name' => 'Alex Student', 'email' => 'alex.student@example.com'],
+            ['email' => 'alex.student@example.com'],
+            ['name' => 'Alex Student', 'password' => 'password'],
         );
     }
 }
