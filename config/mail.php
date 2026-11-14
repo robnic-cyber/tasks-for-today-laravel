@@ -2,6 +2,8 @@
 
 return [
 
+    'task_recipient' => env('TASK_NOTIFICATION_RECIPIENT', 'instructor@example.com'),
+
     /*
     |--------------------------------------------------------------------------
     | Default Mailer
